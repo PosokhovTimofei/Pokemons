@@ -32,19 +32,28 @@ android {
             )
         }
     }
+
+    kapt {
+        correctErrorTypes = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
+
     kotlinOptions {
         jvmTarget = "21"
     }
+
     buildFeatures {
         compose = true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "2.31.0"
     }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -92,12 +101,9 @@ dependencies {
 
     //Dagger - Hilt
     implementation("com.google.dagger:hilt-android:2.49")
-    implementation("androidx.compose.ui:ui-test-junit4-android:1.7.6")
-    implementation("androidx.compose.ui:ui-test-junit4-desktop:1.7.0")
-    implementation("androidx.compose.ui:ui-test-junit4-jvmstubs:1.7.6")
+    implementation("androidx.test.ext:junit-ktx:1.2.1")
     testImplementation("junit:junit:4.13.2")
-    kapt("com.google.dagger:hilt-android-compiler:2.48")
-    kapt("androidx.hilt:hilt-compiler:1.2.0")
+    kapt("com.google.dagger:hilt-android-compiler:2.49")
 
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
